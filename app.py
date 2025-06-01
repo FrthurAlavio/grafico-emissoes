@@ -11,10 +11,10 @@ df_melted["Ano"] = df_melted["Ano"].astype(int)
 
 # Interface Streamlit
 st.set_page_config(page_title="Emissões de Gases no Brasil", layout="centered")
-st.title("📊 Emissões de Gases de Efeito Estufa no Brasil")
+st.title("🚩🚩 Principais Setores de Emissão de Gases de Efeito Estufa no Brasil")
 
 # Menu de seleção
-grafico_tipo = st.selectbox("Escolha o tipo de gráfico:", ["Gráfico de Linha", "Gráfico de Pizza (2023)", "Gráfico de Barras"])
+grafico_tipo = st.selectbox("Escolha o tipo de gráfico:", ["Gráfico de Linha", "Gráfico de Pizza (apenas de 2023)", "Gráfico de Barras"])
 
 if grafico_tipo == "Gráfico de Linha":
     fig = px.line(
@@ -22,7 +22,7 @@ if grafico_tipo == "Gráfico de Linha":
         x="Ano",
         y="Emissões (MtCO2e)",
         color="Categoria",
-        title="Evolução das Emissões de Gases de Efeito Estufa (1990–2023)"
+        title="Evolução dos principais setores de Emissões de Gases de Efeito Estufa (1990–2023)"
     )
     st.plotly_chart(fig, use_container_width=True)
 
@@ -49,3 +49,15 @@ elif grafico_tipo == "Gráfico de Barras":
         text_auto=True
     )
     st.plotly_chart(fig, use_container_width=True)
+    
+    # Adicional
+st.markdown("""
+## ℹ️ Sobre os Dados
+**Fonte:** [SEEG](https://seeg.eco.br/dados/)
+Os dados representam as emissões de gases de efeito estufa (GEE) convertidas em CO₂ equivalente (CO₂e). 
+ 
+- Os valores são expressos em **milhões de toneladas** (Mt)
+- Inclui setores como: energia, agropecuária, uso da terra, resíduos e indústria
+
+Feito por [Arquivo Alternativo](https://www.arquivoalternativo.com/)
+""")
