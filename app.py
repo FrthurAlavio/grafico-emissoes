@@ -54,6 +54,7 @@ elif grafico_tipo == "Gráfico de Barras":
 st.markdown("""
 ## ℹ️ Sobre os Dados
 **Fonte:** [SEEG](https://seeg.eco.br/dados/)
+
 Os dados representam as emissões de gases de efeito estufa (GEE) convertidas em CO₂ equivalente (CO₂e). 
  
 - Os valores são expressos em **milhões de toneladas** (Mt)
