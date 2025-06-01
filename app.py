@@ -26,7 +26,7 @@ if grafico_tipo == "Gráfico de Linha":
     )
     st.plotly_chart(fig, use_container_width=True)
 
-elif grafico_tipo == "Gráfico de Pizza (2023)":
+elif grafico_tipo == "Gráfico de Pizza (apenas de 2023)":
     df_2023 = df[["Categoria", "2023"]].copy()
     df_2023.columns = ["Categoria", "Emissões"]
     fig = px.pie(
